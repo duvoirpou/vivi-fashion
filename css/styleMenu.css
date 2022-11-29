@@ -1,0 +1,43 @@
+	
+
+
+
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	}
+
+.mnu {
+	width: 180px;
+	border: 0px solid #ccc;
+	margin: 10px;
+	
+	}
+	
+	.span{
+		margin-top:0px;
+	}
+	
+	
+.mnu li a {
+  	/* height: 32px; */
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	height: 26px;
+	text-decoration: none;
+	}	
+	
+.mnu li a:link, .mnu li a:visited {
+	color: #888;
+	display: block;
+	background: url(menu.gif);
+	padding: 8px 0 0 30px;
+	}
+	
+.mnu li a:hover, .mnu li a:active {
+	color: #283A50;
+	background: url(menu.gif) 0 -32px;
+	/* padding: 8px 0 0 30px; */
+	}

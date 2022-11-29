@@ -1,0 +1,41 @@
+1- Nous souhaitons créer un site Web dynamique qui permet de présenter en ligne un catalogue de produits. Le catalogue doit présenter des produits. Chaque produit appartient à une catégorie. Une catégorie est défini par : Une code de type INT AUTO_INCREMENT ; Un nom ; Une description . Un produit est défini par : Sa référence de type VARCHAR Sa designation Sa quantité en stock Son prix Sa photo Un champ qui indique s’il est disponible Un champ qui indique s’in est en promotion Un champ qui indique s’il est sélectionné ou non
+
+2- L’application peut être utilisée par les internautes et un administrateur. Un internaute trouve dans ce site les possibilités de : Afficher les produits sélectionnés (Affichage par défaut) Chercher des produits en saisissant un mot clé Afficher les produits en promotions Afficher les produits d’une catégories Ajouter un produit à son panier avec la possibilité de saisir la quantitéAjouter un produit à son panier avec la possibilité de saisir la quantité de ce produit. Afficher le contenu de son panier (Produit, Prix, Quantité, Montant et le montant Total du panier) Passer la commande de son panier en saisissant les informations sur le client. Un administrateur peu effectuer les opérations suivantes: Saisir, Ajouter, consulter, supprimer, éditer, modifier les catégories Saisir, Ajouter, Consulter, supprimer, éditer, modifier les produits
+
+3- Dessiner l’architecture du site. Proposer une maquette pour ce site (Croquis ) 
+Base de données : Concevoir et Créer la base de données nommée           DB_BOUTIQUE           contenant les tables CATEGORIES ; PRODUITS et USERS. Saisir un utilisateur Admin avec un mot de passe Admin crypté par la fonction MD5.
+ Partie back office: Créer la partie backoffice de l’application qui nécessite l’authentification et contenant les éléments suivants: Un formulaire d’authentification (Login et Pass) Un script de validation de l’utilisateur authentifié Un menu qui permet de mener vers les pages qui permettent de: Saisir, ajouter, afficher, éditer, modifier et supprimer les catégories Saisir, ajouter, afficher, éditer, modifier et supprimer les produits
+
+4- Partie front office: boutique virtuelle.
+ Créer une entête du site qui contient les éléments suivants : Un Logo et une zone pour la pub Un formulaire de recherche des produits Les menus (Produits, Produits en promo, Produits sélectionnés, Panier, etc..) Créer la partie gauche du site qui affiche toutes les catégories avec un liens hypertexte qui devrait permettre d’afficher les produits de cette catégories. Créer la page qui permet d’afficher les produits selon les critères suivants ;; Produits d’une catégories, Produits recherchés, Produits en promotion et Produits sélectionnés (Affichage par défaut) avec la possibilité d’ajouter le produit au panier. Créer la page principale du site qui inclut l’ensemble des éléments développés (Entête, Catégories et Produits) Créer la page qui permet gérer le panier Ajouter dans la base de données les tables nécessaires qui permettent d’enregistrer les commandes d’un client. Créer la partie du site qui permet de passer une commande. Améliorer le design de votre site
+
+
+
+TECHNIQUEMENT on a comme bdd :
+
+Table structure for table `categories` | CREATE TABLE IF NOT EXISTS `categories` ( `CODE_CAT` int(11) NOT NULL AUTO_INCREMENT, `NOM_CAT` varchar(25) NOT NULL, `DESCRIPTION` text NOT NULL, PRIMARY KEY (`CODE_CAT`) ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=7
+
+
+Table structure for table `produits` | CREATE TABLE IF NOT EXISTS `produits` ( `REF_PRODUIT` varchar(20) NOT NULL, `DESIGNATION` varchar(50) NOT NULL, `QUANTITE` int(11) NOT NULL, `PRIX` int(11) NOT NULL, `PHOTO` varchar(30) NOT NULL, `DISPONIBLE` tinyint(4) NOT NULL, `PROMOTION` tinyint(4) NOT NULL, `SELECTIONNE` tinyint(4) NOT NULL, `CODE_CAT` int(11) NOT NULL, PRIMARY KEY (`REF_PRODUIT`) ) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
+
+Table structure for table `users` | CREATE TABLE IF NOT EXISTS `users` ( `LOGIN` varchar(20) NOT NULL, `PASS` varchar(200) NOT NULL, `NIVEAU` int(11) NOT NULL, PRIMARY KEY (`LOGIN`) ) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
+
+
+
+
+-------------------------------------------------------------------------
+
+
+CREATE TABLE IF NOT EXISTS `clients` ( `id_client` varchar(20) NOT NULL, `nom_client` varchar(200) NOT NULL, `prenom_client` varchar(200) NOT NULL, `email_client` varchar(200) NOT NULL, `adresse_client` varchar(200) NOT NULL, `ville_client` varchar(200) NOT NULL, `tel_client` varchar(200) NOT NULL, `NIVEAU` int(11) NOT NULL, PRIMARY KEY (`id_client`) ) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
+
+CREATE TABLE IF NOT EXISTS `commande` ( `id_commande` varchar(20) NOT NULL, `nom_commande` varchar(200) NOT NULL, `id_client` int(11) NOT NULL, PRIMARY KEY (`id_commande`) ) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
+
+
+
+
+
+themelot.net ou .me
